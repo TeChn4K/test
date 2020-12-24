@@ -17,6 +17,6 @@ jobs:
         run: |
           echo "Base branch is $GITHUB_BASE_REF"
           echo "Branch is $GITHUB_REF"
-          if [[ $GITHUB_BASE_REF == stable && $GITHUB_REF == fix-* ]] ; then exit 1; fi
+          if [[ $GITHUB_BASE_REF == stable && $GITHUB_REF != fix-* ]] ; then exit 1; fi
           if [[ $GITHUB_BASE_REF == master ]] ; then exit 1; fi
           exit 0
