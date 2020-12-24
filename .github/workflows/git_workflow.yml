@@ -1,0 +1,22 @@
+# Make sure that our workflow Git is well respected
+
+# Default PR activities are `opened`, `synchronize` & `reopened`.
+# We added `edited` to re-run on PR edition (specially on base branch change)
+# https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows#pull_request
+
+on:
+  pull_request:
+    types: [edited, opened, synchronize, reopened]
+
+jobs:
+  git_workflow:
+    runs-on: ubuntu-latest
+    name: Check Git workflow
+    steps:
+      - name: Check restricted base branch
+        run: |
+          echo "Base branch is $GITHUB_BASE_REF"
+          echo "Branch is $GITHUB_REF"
+          if [[ $GITHUB_BASE_REF == stable && $GITHUB_REF == fix-* ]] ; then exit 1; fi
+          if [[ $GITHUB_BASE_REF == master ]] ; then exit 1; fi
+          exit 0
