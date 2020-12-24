@@ -2,7 +2,7 @@ on:
   push:
     branches:
       - stable
-      - 'feat/*'
+      - 'feat-*'
 
 jobs:
   test:
