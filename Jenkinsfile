@@ -9,7 +9,7 @@ podTemplate(containers: [
     }
     stage('Build') {
       container('kaniko') {
-        sh '/kaniko/executor -f "`pwd`/Dockerfile" -c "`pwd`" --destination=nginx-myhello:latest --cache=true --no-push --cache-repo' 
+        sh '/kaniko/executor -f "`pwd`/Dockerfile" -c "`pwd`" --destination=nginx-myhello:latest --no-push' 
       }
       
     }
