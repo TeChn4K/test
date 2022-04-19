@@ -1,0 +1,8 @@
+bases:
+  - ../base
+
+resources:
+  - ingress.yml
+
+commonLabels:
+  env: prod

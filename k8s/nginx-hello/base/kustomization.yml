@@ -1,0 +1,9 @@
+resources:
+  - deployment.yml
+  - namespace.yml
+  - service.yml
+
+namespace: nginx-hello
+
+commonLabels:
+  app: nginx-hello

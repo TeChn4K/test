@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-hello
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-hello
+  template:
+    metadata:
+      labels:
+        app: nginx-hello
+    spec:
+      containers:
+        - name: server
+          image: nginx-myhello:latest
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 100m
+              memory: '128M'
+            limits:
+              cpu: 100m
+              memory: '256M'

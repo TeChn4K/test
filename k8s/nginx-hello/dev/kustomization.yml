@@ -1,0 +1,11 @@
+bases:
+  - ../base
+
+resources:
+  - ingress.yml
+
+patchesStrategicMerge:
+  - minikube-container.yml
+
+commonLabels:
+  env: dev
