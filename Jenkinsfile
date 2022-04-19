@@ -17,7 +17,7 @@ podTemplate(containers: [
     // }
 
     stage('K8s') {
-      container('kustomize') {
+      container('kubectl') {
         sh 'kubectl get pods'
       }
     }
